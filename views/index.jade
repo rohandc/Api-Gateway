@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container
+    if (!user)
+      a(href="/login") Login
+      br
+      a(href="/register") Register
+    if (user)
+      div(ng-app="Api" ng-controller="baseCntrl")
+        a(href="" class="button" onClick="api_function('Nasa');return false") NASA
+
+        a(href="" class="button" onClick="api_function('Twitter');return false") TWITTER
+
+        a(href="" class="button" onClick="api_function('Imdb');return false") IMDB
+
+        div(id="View" class="view")
+
+
+
+
+        p You are currently logged in as #{user.username}
+        a(href="/logout") Logout
